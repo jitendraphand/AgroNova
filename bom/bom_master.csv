@@ -1,9 +1,22 @@
-part_number,subsystem,description,manufacturer,mpn,qty,unit,unit_cost,currency,supplier,datasheet_url,status,notes
-AN-ELEC-001-rA,power,Battery 24V LiFePO4 (capacity TBD),TBD,TBD,1,ea,TBD,INR,TBD,TBD,NOT SELECTED,SRS A-5
-AN-ELEC-002-rA,drive,DC gearmotor with encoder (torque/rpm TBD),TBD,TBD,4,ea,TBD,INR,TBD,TBD,NOT SELECTED,Requires torque calc
-AN-ELEC-003-rA,drive,Dual-channel motor driver (current rating TBD),TBD,TBD,2,ea,TBD,INR,TBD,TBD,NOT SELECTED,
-AN-ELEC-004-rA,control,ESP32 dev board,TBD,TBD,1,ea,TBD,INR,TBD,TBD,NOT SELECTED,SRS A-6
-AN-ELEC-005-rA,compute,Raspberry Pi 5,Raspberry Pi Ltd,TBD,1,ea,TBD,INR,TBD,TBD,NOT SELECTED,SRS A-6
-AN-SAFE-001-rA,safety,Latching E-stop button NC,TBD,TBD,1,ea,TBD,INR,TBD,TBD,NOT SELECTED,
-AN-SAFE-002-rA,safety,Motor power contactor/relay,TBD,TBD,1,ea,TBD,INR,TBD,TBD,NOT SELECTED,
-AN-MECH-001-rA,chassis,Aluminium extrusion frame (profile TBD),TBD,TBD,TBD,m,TBD,INR,TBD,TBD,NOT SELECTED,Not 3D printed
+part_number,subsystem,description,candidate_manufacturer,candidate_mpn,qty,unit,est_unit_cost_inr,price_source,datasheet,status,notes
+AN-ELEC-001-rA,power,Battery 25.6 V (8S) LiFePO4 >=25 Ah with BMS (>=30 A cont.),TBD,TBD,1,ea,TBD,TBD - obtain quotes,TBD,CANDIDATE TYPE ONLY,Sized in docs/calculations/RESULTS.md
+AN-ELEC-002-rA,drive,24 V DC gearmotor with quadrature encoder; >=17.4 N·m continuous at wheel; ~64 rpm at wheel,TBD,TBD,4,ea,TBD,TBD,TBD,NOT SELECTED,Torque/rpm from tools/sizing.py; gearbox must take wheel radial load or use separate bearings
+AN-ELEC-003-rA,drive,Dual-channel DC motor driver >=20 A/ch 24 V PWM+DIR input,Cytron,MDD20A,1,ea,TBD,TBD,https://www.cytron.io (verify),CANDIDATE,Two motors per channel requires current check vs datasheet; alt: 2x single-channel drivers
+AN-ELEC-004-rA,control,ESP32 dev board,Espressif,ESP32-DevKitC-32E,1,ea,TBD,TBD,https://www.espressif.com (verify),CANDIDATE,Matches firmware env esp32dev
+AN-ELEC-005-rA,compute,Single-board computer,Raspberry Pi Ltd,Raspberry Pi 5 (4 GB or 8 GB),1,ea,TBD,TBD,https://www.raspberrypi.com (verify),CANDIDATE,Needs 5 V/5 A supply
+AN-ELEC-006-rA,power,DC-DC 24 V -> 5 V >=5 A isolated or non-isolated,TBD,TBD,1,ea,TBD,TBD,TBD,NOT SELECTED,
+AN-ELEC-007-rA,sensing,2D lidar >=10 m range,Slamtec,RPLIDAR A2 (or equivalent),1,ea,TBD,TBD,https://www.slamtec.com (verify),CANDIDATE,Outdoor sunlight performance must be verified
+AN-ELEC-008-rA,sensing,IMU 9-axis,TBD (e.g. Bosch/CEVA BNO08x-based module),TBD,1,ea,TBD,TBD,TBD,CANDIDATE TYPE ONLY,
+AN-ELEC-009-rA,sensing,GNSS receiver RTK-capable + antenna,u-blox,ZED-F9P based board,1,ea,TBD,TBD,https://www.u-blox.com (verify),CANDIDATE,RTK needs corrections (RK-06)
+AN-ELEC-010-rA,power,Main fuse 30 A + holder,TBD,TBD,1,ea,TBD,TBD,TBD,NOT SELECTED,WIRING.md F1
+AN-ELEC-011-rA,power,Main isolator switch >=50 A DC,TBD,TBD,1,ea,TBD,TBD,TBD,NOT SELECTED,SW1
+AN-ELEC-012-rA,power,Battery connector,Anderson Power,SB50,1,pair,TBD,TBD,https://www.andersonpower.com (verify),CANDIDATE,Keyed (reverse polarity)
+AN-ELEC-013-rA,power,Cable 6 mm² red/black flexible copper,TBD,TBD,4,m,TBD,TBD,TBD,NOT SELECTED,
+AN-SAFE-001-rA,safety,E-stop mushroom 22 mm NC latching,TBD (e.g. Schneider/Siemens/Teknic),TBD,2,ea,TBD,TBD,TBD,CANDIDATE TYPE ONLY,Fits AN-PRT-003
+AN-SAFE-002-rA,safety,Motor contactor K1 coil 24 VDC contacts >=40 A DC,TBD,TBD,1,ea,TBD,TBD,TBD,NOT SELECTED,DC-rated contacts required
+AN-SAFE-003-rA,safety,Safety relay K2 (monitored manual reset) 24 VDC,TBD,TBD,1,ea,TBD,TBD,TBD,NOT SELECTED,
+AN-SAFE-004-rA,safety,Wireless E-stop set (fail-safe),TBD,TBD,1,set,TBD,TBD,TBD,NOT SELECTED,
+AN-MECH-001-rA,chassis,Mild-steel square tube 25x25x1.5 IS 2062 E250,local,—,4.0,m,TBD,TBD,IS 2062,CANDIDATE,Frame per CAD
+AN-MECH-002-rA,chassis,Wheel 300 mm dia. lugged with hub,TBD,TBD,4,ea,TBD,TBD,TBD,NOT SELECTED,
+AN-MECH-003-rA,enclosure,IP65 enclosure ~300x200x150 mm,TBD,TBD,1,ea,TBD,TBD,TBD,NOT SELECTED,
+AN-PRT-001..005-rA,printed,See bom/printed_parts.csv,—,—,1 each,ea,TBD,—,—,DESIGNED-NOT PRINTED,ASA filament ~1.5 kg (upper bound from solid volume)
