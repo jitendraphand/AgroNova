@@ -13,7 +13,7 @@
  [K1 motor contactor NO, coil 24 V] ◄── safety chain (below)   [F2 5 A] → [DC-DC 24→5 V ≥ 5 A] → Pi 5 (USB-C/GPIO 5 V)
    │ (6 mm²)                                    │                         → [5→3.3 V on ESP32 board]
  [F3 20 A]──[MD1 driver L]──M1,M2 (left pair)   └─[F4 2 A] → sensors 12 V via DC-DC (lidar/GNSS as required)
- [F4 20 A]──[MD2 driver R]──M3,M4 (right pair)
+ [F6 20 A]──[MD2 driver R]──M3,M4 (right pair)
    │
  BAT− ─ (6 mm² black) ─ star ground bus GND1 ─ driver GND, DC-DC GND, chassis bond via 1 point (A-24)
 ```
