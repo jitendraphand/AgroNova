@@ -8,6 +8,8 @@
   <buildtool_depend>ament_cmake</buildtool_depend>
   <exec_depend>agronova_description</exec_depend>
   <exec_depend>agronova_kinematics</exec_depend>
+  <exec_depend>agronova_gazebo</exec_depend>
+  <exec_depend>agronova_navigation</exec_depend>
   <exec_depend>robot_state_publisher</exec_depend>
   <export><build_type>ament_cmake</build_type></export>
 </package>

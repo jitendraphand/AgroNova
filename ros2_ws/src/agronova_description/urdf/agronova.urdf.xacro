@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <!-- PLACEHOLDER geometry/masses (SRS A-7). Replace with CAD-derived values. -->
 <robot name="agronova" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:arg name="sim" default="false"/>
   <xacro:property name="wheel_radius" value="0.15"/>
   <xacro:property name="wheel_width" value="0.08"/>
   <xacro:property name="track_width" value="0.50"/>
@@ -43,4 +44,5 @@
   <xacro:wheel name="front_right" x="${wheel_base/2}"  y="${-track_width/2}"/>
   <xacro:wheel name="rear_left"   x="${-wheel_base/2}" y="${track_width/2}"/>
   <xacro:wheel name="rear_right"  x="${-wheel_base/2}" y="${-track_width/2}"/>
+  <xacro:if value="$(arg sim)"><xacro:include filename="$(find agronova_description)/urdf/agronova_gazebo.xacro"/></xacro:if>
 </robot>
