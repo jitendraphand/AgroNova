@@ -1,0 +1,35 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install -r requirements-dev.txt
+      - run: ruff check .
+      - run: pytest -q
+      - run: python tools/check_printability.py hardware/stl
+  ros2:
+    runs-on: ubuntu-24.04
+    container: ros:jazzy
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build & test
+        shell: bash
+        run: |
+          apt-get update && apt-get install -y python3-pytest ros-jazzy-xacro
+          cd ros2_ws && source /opt/ros/jazzy/setup.bash
+          colcon build --event-handlers console_direct+
+          colcon test --event-handlers console_direct+ && colcon test-result --verbose
+          source install/setup.bash
+          xacro src/agronova_description/urdf/agronova.urdf.xacro > /tmp/agronova.urdf
+  firmware:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install platformio
+      - run: cd firmware/motor_controller && pio run

@@ -1,0 +1,9 @@
+part_number,subsystem,description,manufacturer,mpn,qty,unit,unit_cost,currency,supplier,datasheet_url,status,notes
+AN-ELEC-001-rA,power,Battery 24V LiFePO4 (capacity TBD),TBD,TBD,1,ea,TBD,INR,TBD,TBD,NOT SELECTED,SRS A-5
+AN-ELEC-002-rA,drive,DC gearmotor with encoder (torque/rpm TBD),TBD,TBD,4,ea,TBD,INR,TBD,TBD,NOT SELECTED,Requires torque calc
+AN-ELEC-003-rA,drive,Dual-channel motor driver (current rating TBD),TBD,TBD,2,ea,TBD,INR,TBD,TBD,NOT SELECTED,
+AN-ELEC-004-rA,control,ESP32 dev board,TBD,TBD,1,ea,TBD,INR,TBD,TBD,NOT SELECTED,SRS A-6
+AN-ELEC-005-rA,compute,Raspberry Pi 5,Raspberry Pi Ltd,TBD,1,ea,TBD,INR,TBD,TBD,NOT SELECTED,SRS A-6
+AN-SAFE-001-rA,safety,Latching E-stop button NC,TBD,TBD,1,ea,TBD,INR,TBD,TBD,NOT SELECTED,
+AN-SAFE-002-rA,safety,Motor power contactor/relay,TBD,TBD,1,ea,TBD,INR,TBD,TBD,NOT SELECTED,
+AN-MECH-001-rA,chassis,Aluminium extrusion frame (profile TBD),TBD,TBD,TBD,m,TBD,INR,TBD,TBD,NOT SELECTED,Not 3D printed

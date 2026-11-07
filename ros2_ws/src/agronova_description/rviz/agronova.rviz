@@ -1,0 +1,11 @@
+Panels: []
+Visualization Manager:
+  Global Options:
+    Fixed Frame: base_footprint
+  Displays:
+    - Class: rviz_default_plugins/RobotModel
+      Name: RobotModel
+      Description Topic:
+        Value: /robot_description
+    - Class: rviz_default_plugins/TF
+      Name: TF
