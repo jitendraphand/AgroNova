@@ -11,7 +11,7 @@ from agronova_kinematics.diff_drive import DiffDriveParams, forward, integrate_o
 class DiffDriveNode(Node):
     def __init__(self):
         super().__init__("diff_drive")
-        self.declare_parameter("wheel_radius", 0.10)
+        self.declare_parameter("wheel_radius", 0.15)
         self.declare_parameter("track_width", 0.50)
         self.p = DiffDriveParams(
             self.get_parameter("wheel_radius").value, self.get_parameter("track_width").value

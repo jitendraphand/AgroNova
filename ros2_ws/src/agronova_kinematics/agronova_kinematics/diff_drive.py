@@ -8,7 +8,7 @@ import math
 from dataclasses import dataclass
 
 # Placeholder parameters (SRS A-3, A-7) — TBD after mechanical design.
-DEFAULT_WHEEL_RADIUS = 0.10
+DEFAULT_WHEEL_RADIUS = 0.15
 DEFAULT_TRACK_WIDTH = 0.50
 MAX_LINEAR_SPEED = 1.0
 

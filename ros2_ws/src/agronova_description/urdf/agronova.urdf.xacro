@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
 <!-- PLACEHOLDER geometry/masses (SRS A-7). Replace with CAD-derived values. -->
 <robot name="agronova" xmlns:xacro="http://www.ros.org/wiki/xacro">
-  <xacro:property name="wheel_radius" value="0.10"/>
-  <xacro:property name="wheel_width" value="0.06"/>
+  <xacro:property name="wheel_radius" value="0.15"/>
+  <xacro:property name="wheel_width" value="0.08"/>
   <xacro:property name="track_width" value="0.50"/>
   <xacro:property name="wheel_base" value="0.50"/>
   <xacro:property name="body_l" value="0.70"/>
   <xacro:property name="body_w" value="0.40"/>
-  <xacro:property name="body_h" value="0.20"/>
-  <xacro:property name="body_mass" value="25.0"/>
-  <xacro:property name="wheel_mass" value="1.5"/>
+  <xacro:property name="body_h" value="0.25"/>
+  <xacro:property name="body_mass" value="37.0"/>
+  <xacro:property name="wheel_mass" value="2.0"/>
 
   <link name="base_footprint"/>
   <link name="base_link">
