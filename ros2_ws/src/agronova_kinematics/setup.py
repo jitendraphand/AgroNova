@@ -12,6 +12,6 @@ setup(
     install_requires=["setuptools"],
     zip_safe=True,
     license="MIT",
-    tests_require=["pytest"],
+    extras_require={"test": ["pytest"]},
     entry_points={"console_scripts": ["diff_drive_node = agronova_kinematics.diff_drive_node:main"]},
 )

@@ -10,3 +10,4 @@ firmware/**/.pio/
 *.FCStd1
 *-backups/
 .venv/
+.pixi/

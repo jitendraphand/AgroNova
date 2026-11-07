@@ -26,8 +26,9 @@ def test_package_xml(p):
     assert root.find("name").text == p.parent.name and root.find("license").text == "MIT"
 
 
-def test_world_sdf_parses():
-    root = ET.parse(SRC / "agronova_gazebo" / "worlds" / "cotton_field.sdf").getroot()
+@pytest.mark.parametrize("world", ["cotton_field.sdf", "cotton_field_capture.sdf"])
+def test_world_sdf_parses(world):
+    root = ET.parse(SRC / "agronova_gazebo" / "worlds" / world).getroot()
     assert len([m for m in root.iter("model") if m.get("name").startswith("plant_")]) > 0
 
 

@@ -12,9 +12,11 @@
   <xacro:property name="body_mass" value="37.0"/>
   <xacro:property name="wheel_mass" value="2.0"/>
 
+  <material name="body_yellow"><color rgba="0.95 0.75 0.1 1"/></material>
+  <material name="tyre_black"><color rgba="0.1 0.1 0.1 1"/></material>
   <link name="base_footprint"/>
   <link name="base_link">
-    <visual><geometry><box size="${body_l} ${body_w} ${body_h}"/></geometry></visual>
+    <visual><geometry><box size="${body_l} ${body_w} ${body_h}"/></geometry><material name="body_yellow"/></visual>
     <collision><geometry><box size="${body_l} ${body_w} ${body_h}"/></geometry></collision>
     <inertial><mass value="${body_mass}"/>
       <inertia ixx="${body_mass*(body_w*body_w+body_h*body_h)/12}" ixy="0" ixz="0"
@@ -28,7 +30,7 @@
 
   <xacro:macro name="wheel" params="name x y">
     <link name="${name}_wheel">
-      <visual><origin rpy="${pi/2} 0 0"/><geometry><cylinder radius="${wheel_radius}" length="${wheel_width}"/></geometry></visual>
+      <visual><origin rpy="${pi/2} 0 0"/><geometry><cylinder radius="${wheel_radius}" length="${wheel_width}"/></geometry><material name="tyre_black"/></visual>
       <collision><origin rpy="${pi/2} 0 0"/><geometry><cylinder radius="${wheel_radius}" length="${wheel_width}"/></geometry></collision>
       <inertial><mass value="${wheel_mass}"/>
         <inertia ixx="${wheel_mass*(3*wheel_radius*wheel_radius+wheel_width*wheel_width)/12}" ixy="0" ixz="0"

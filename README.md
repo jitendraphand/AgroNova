@@ -20,6 +20,18 @@ AgroNova is a modular, open-source agricultural robotics platform: field mobilit
    └─ HARDWARE E-stop chain cuts motor power independently of software
 ```
 
+## Visuals
+| | |
+|---|---|
+| ![Gazebo overview](docs/media/gazebo_overview.gif) | ![RViz2](docs/media/rviz.gif) |
+| **Gazebo Harmonic** (real headless run, ogre2 camera sensor in `cotton_field_capture.sdf`) — robot driving the 0.90 m inter-row | **RViz2** (real screenshot under Xvfb): RobotModel, TF, Gazebo `/scan`, EKF `/odometry/local` |
+| ![Gazebo top](docs/media/gazebo_top.gif) | ![Kinematic sim](docs/media/kinematic_sim.gif) |
+| Gazebo top-down camera | **Python kinematic simulation** (not Gazebo) using `agronova_kinematics`: lidar ray-casting + stop-zone halt for a person |
+| ![CAD](docs/media/cad_assembly.png) | ![Gazebo data](docs/media/gazebo_odom_scan.png) |
+| CadQuery draft assembly (matplotlib render) | Odometry trace + lidar scan recorded from the Gazebo run |
+
+How each was made and how to regenerate: [docs/simulation/README.md](docs/simulation/README.md#visuals).
+
 ## Repository layout
 | Path | Contents |
 |---|---|

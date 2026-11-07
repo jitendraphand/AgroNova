@@ -30,8 +30,23 @@ PLANT = """  <model name="plant_{r}_{k}"><static>true</static><pose>{x:.2f} {y:.
 """
 
 
-def make(rows=4, length=10.0, spacing=0.90, plant_gap=0.5):
+CAMERAS = """  <model name="overview_cam"><static>true</static><pose>-2.5 -4.0 2.6 0 0.33 0.62</pose><link name="l">
+    <sensor name="overview_camera" type="camera"><always_on>1</always_on><update_rate>5</update_rate>
+      <topic>overview_camera</topic><camera><horizontal_fov>1.2</horizontal_fov>
+      <image><width>1280</width><height>720</height></image><clip><near>0.1</near><far>100</far></clip></camera>
+    </sensor></link></model>
+  <model name="top_cam"><static>true</static><pose>6.0 0 14.0 0 1.5707 0</pose><link name="l">
+    <sensor name="top_camera" type="camera"><always_on>1</always_on><update_rate>5</update_rate>
+      <topic>top_camera</topic><camera><horizontal_fov>1.0</horizontal_fov>
+      <image><width>1280</width><height>720</height></image><clip><near>0.1</near><far>100</far></clip></camera>
+    </sensor></link></model>
+"""
+
+
+def make(rows=4, length=10.0, spacing=0.90, plant_gap=0.5, cameras=False):
     out = [HEADER]
+    if cameras:  # static capture cameras used only for documentation screenshots
+        out.append(CAMERAS)
     for r in range(rows):
         y = (r - (rows - 1) / 2) * spacing
         for k in range(int(length / plant_gap) + 1):
@@ -44,5 +59,6 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--rows", type=int, default=4)
     ap.add_argument("-o", default="worlds/cotton_field.sdf")
+    ap.add_argument("--cameras", action="store_true", help="add overview/top capture cameras")
     a = ap.parse_args()
-    open(a.o, "w").write(make(a.rows))
+    open(a.o, "w").write(make(a.rows, cameras=a.cameras))
